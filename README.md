@@ -1,2 +1,3 @@
-# omse
-Optimizing the Management of Soil Erosion using Linear Program techniques
+# Optimization of Soil Erosion Management (OSEM)
+
+Optimization of Soil Erosion Management, using Linear Program techniques applied in multi-objective model.
