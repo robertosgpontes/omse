@@ -21,6 +21,17 @@ def load_model(lpm, A, X, b):
         lpm += Ax[i,0] >= b[i,0]
 
     return lpm
+
+def load_model_2(lpm, A, X, b):
+    Ax = A.dot(X)
+
+    for i in range(0,5):
+        lpm += Ax[i,0] <= b[i,0]
+
+    for i in range(5,7):
+        lpm += Ax[i,0] >= b[i,0]
+
+    return lpm
   
 f_real = lambda c, x: c.dot(x)
 
