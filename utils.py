@@ -26,7 +26,7 @@ f_real = lambda c, x: c.dot(x)
 
 f = lambda c, x: f_real(c, x)[0]
 
-sig = lambda sigma: 1/(1 + np.exp(sigma*(np.linspace(0, NUM_ITER, NUM_ITER)-(NUM_ITER/2))))
+sig = lambda sigma, NUM_ITER: 1/(1 + np.exp(sigma*(np.linspace(0, NUM_ITER, NUM_ITER)-(NUM_ITER/2))))
 
 def f_alpha(alpha, f1, f2):
   return (alpha*f1 + (1-alpha)*f2)
