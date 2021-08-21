@@ -73,6 +73,37 @@ def run_models(f_alphas, C, A, b):
     
   return pd.DataFrame(solution_lst, columns=["iter","alpha","status","x1","x2", "x3", "x4", "obj_value", "f1", "f2"])
 
+def run_models_2(f_alphas, C, A, b):
+  solution_lst = []
+  i = 0
+  for alpha in f_alphas:
+    model = pulp.LpProblem("MultiObjetivo", pulp.LpMaximize)
+
+    X = create_x_variables()
+
+    model += f_alpha(alpha, f(C[0], X), -f(C[1], X))
+
+    model = load_model_2(model, A, X, b)
+
+    solution = model.solve()
+
+    X2 = np.array([pulp.value(X[0][0]), 
+                    pulp.value(X[1][0]), 
+                    pulp.value(X[2][0]), 
+                    pulp.value(X[3][0])])
+    
+    solution_lst.append([i,
+                    alpha,
+                    str(pulp.LpStatus[solution])] +
+                    X2.tolist() +
+                    [pulp.value(model.objective),
+                    f_real(C[0], X2),
+                    -f_real(C[1], X2)]
+                    )
+    i += 1
+    
+  return pd.DataFrame(solution_lst, columns=["iter","alpha","status","x1","x2", "x3", "x4", "obj_value", "f1", "f2"])
+
 def print_solution(solution, linearProblem, X):
     print("\nStatus = "+str(pulp.LpStatus[solution])+
           "\nValue = "+str(pulp.value(linearProblem.objective))+
