@@ -30,7 +30,7 @@ sig = lambda sigma: 1/(1 + np.exp(sigma*(np.linspace(0, NUM_ITER, NUM_ITER)-(NUM
 def f_alpha(alpha, f1, f2):
   return (alpha*f1 + (1-alpha)*f2)
 
-def run_models(f_alphas):
+def run_models(f_alphas, C, A, b):
   solution_lst = []
   i = 0
   for alpha in f_alphas:
