@@ -62,8 +62,8 @@ def run_models(f_alphas, C, A, b):
     
   return pd.DataFrame(solution_lst, columns=["iter","alpha","status","x1","x2", "x3", "x4", "obj_value", "f1", "f2"])
 
-def print_solution(linearProblem):
-    print(str(pulp.LpStatus[solution2])+
+def print_solution(solution, linearProblem, X):
+    print("\nStatus = "+str(pulp.LpStatus[solution])+
           "\nValue = "+str(pulp.value(linearProblem.objective))+
           "\nx1 = "+str(pulp.value(X[0][0]))+
           "\nx2 = "+str(pulp.value(X[1][0]))+
