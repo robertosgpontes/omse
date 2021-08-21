@@ -1,5 +1,6 @@
 import pulp
 import numpy as np
+import pandas as pd
 
 def create_x_variables():
     x1 = pulp.LpVariable("x1",lowBound = 0) 
