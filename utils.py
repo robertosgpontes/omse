@@ -69,3 +69,6 @@ def print_solution(solution, linearProblem, X):
           "\nx2 = "+str(pulp.value(X[1][0]))+
           "\nx3 = "+str(pulp.value(X[2][0]))+
           "\nx4 = "+str(pulp.value(X[3][0])))
+    
+MinMax = lambda C: (C - C.min()) / (C.max() - C.min())
+Standardization = lambda C: (C - C.mean()) / C.std()
