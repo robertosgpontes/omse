@@ -114,3 +114,4 @@ def print_solution(solution, linearProblem, X):
     
 MinMax = lambda C: (C - C.min()) / (C.max() - C.min())
 Standardization = lambda C: (C - C.mean()) / C.std()
+DSPerLine = lambda f, C: np.array([f(i) for i in C])
