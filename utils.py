@@ -71,6 +71,9 @@ def run_models(f_alphas, C, A, b):
                     )
     i += 1
     
+    del model
+    del solution
+    
   return pd.DataFrame(solution_lst, columns=["iter","alpha","status","x1","x2", "x3", "x4", "obj_value", "f1", "f2"])
 
 def run_models_2(f_alphas, C, A, b):
@@ -101,6 +104,9 @@ def run_models_2(f_alphas, C, A, b):
                     -f_real(C[1], X2)]
                     )
     i += 1
+    
+    del model
+    del solution
     
   return pd.DataFrame(solution_lst, columns=["iter","alpha","status","x1","x2", "x3", "x4", "obj_value", "f1", "f2"])
 
